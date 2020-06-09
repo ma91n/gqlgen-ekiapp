@@ -1,0 +1,17 @@
+version: "3.5"
+services:
+  postgresql:
+    build: ./
+    container_name: postgre-eki
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    ports:
+      - "5432:5432"
+    user: root
+    volumes:
+      - pg-data-eki:/var/lib/pgdata
+volumes:
+  pg-data-eki:
+    driver: local

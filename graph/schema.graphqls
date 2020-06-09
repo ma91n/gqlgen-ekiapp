@@ -1,0 +1,14 @@
+type Station {
+    stationCD: Int!
+    lineName: String
+    stationName: String!
+    address: String
+    beforeStation: Station
+    afterStation: Station
+    transferStation: [Station]
+}
+
+type Query {
+    stationByName(stationName: String): [Station]
+    stationByCD(stationCD: Int): Station!
+}
